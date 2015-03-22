@@ -1,0 +1,75 @@
+<html lang="cs">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>GalleryExplorer</title>
+        <link rel="stylesheet" type="text/css" href="<?= $template->dataDir ?>/css/styles.css">
+
+        <style type="text/css"></style></head>
+
+    <body id="body" style="background-image: url('<?= $template->backgroundImage?>');">
+        <div style="margin-left:auto; margin-right:auto; padding-bottom:10px; text-align:center;">
+            <table style="height:54px;" align="center" cellspacing="0" cellpadding="0" border="0">
+                <tbody>
+                    <tr>
+                        <td>
+                            <!-- Header of index pages -->
+                            <table style="width:960px;" cellspacing="0" cellpadding="0" border="0">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:20px;">
+                                            <img style="border:0;" src="<?= $template->dataDir ?>/images/hdr_left.gif" alt="">
+                                        </td>
+                                        <td style="text-align:left; background:transparent url(<?= $template->dataDir ?>/images/hdr_mid.gif) repeat-x; white-space:nowrap;" class="title"> GalleryExplorer </td>
+                                        <td style="width:20px;">
+                                            <img style="border:0;" src="<?= $template->dataDir ?>/images/hdr_right.gif" alt="">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table align="center" cellspacing="6" cellpadding="0" border="0">
+                <tr>
+                    <?php 
+                    $atLine = 6;
+                    $i = 0;
+                    foreach($template->data as $row){
+                    if($i % $atLine == 0){
+                        echo "</tr><tr>";
+                    }   
+                    $i++;
+                    ?>
+                    <td style="vertical-align:top; text-align:center;"><div style="width:100%; height:10px;"></div>
+                        <table width="100" align="center" border="0" cellspacing="0" cellpadding="0">
+                            <tbody><tr><td style="height:100px;"><a href="<?= $row->path ?>"><img style="border:0;" src="<?= $template->dataDir ?>/images/folder.gif" width="100" height="100" title="<?= $row->name ?>" alt="<?= $row->name ?>"></a></td></tr>
+                            </tbody></table>
+                        <div style="width:120px; padding:10px; overflow:hidden; text-align:center;" class="smalltxt">
+                            <span class="dirname"><a href="<?= $row->path ?>"><font color="<?= $template->textColor;?>"><?= $row->name ?></font></a></span>
+                        </div>
+                    </td>
+                    <?php } ?>
+                </tr>
+            </table>
+
+
+
+
+            <br>
+            
+            <table style="width:960px;" align="center" class="infotable" cellspacing="0" cellpadding="2">
+
+
+
+
+
+
+                <tbody><tr><td align="center" class="xsmalltxt"><font color="<?= $template->textColor;?>">Direcory founded: <strong><?= $template->directoryCount ?></strong> | Created by: <strong>Vladimír Novák</strong> | License: </font><strong><a href="https://en.wikipedia.org/wiki/MIT_License" target="_blank"><font color="<?= $template->textColor;?>">MIT</font></a></strong></td></tr>
+                </tbody></table>
+
+
+        </div>
+
+
+    </body></html>
